@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- 修改说明: 1.修改pakcage的namespace属性,因为URL访问规则是: /namesapce/Entity/method.do 
+	2.根据你的包结构修改action节点的class属性 -->
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<!-- struts的URL扩展名 -->
+	<constant name="struts.action.extension" value="do" />
+
+	<!-- 允许访问静态成员变量 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<constant name="struts.custom.i18n.resources" value="i18n/messages" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
+	<package name="loginInterceptor" extends="struts-default" abstract="true">
+		<!-- 定义登录拦截器 -->
+		<interceptors>
+			<interceptor name="loginValidate" class="javacommon.struts2.interceptor.LoginInterceptor">
+			</interceptor>
+			<!-- 拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="loginValidate" />
+			</interceptor-stack>
+		</interceptors>
+		 <!-- 修改默认拦截器 -->  
+        <default-interceptor-ref name="mydefault"/>
+		<!-- 定义全局Result -->
+		<global-results>
+			<!-- 当返回login视图名时，转入/login.jsp页面 -->
+			<result name="login">/login.jsp</result>
+		</global-results>
+	</package>
+	<!-- 使用登录拦截器 -->
+	<!-- <interceptor-ref name="loginInterceptor" /> -->
+	<!--引入action -->
+	<include file="struts/struts-login.xml" />
+</struts>

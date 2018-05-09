@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	
+	<!-- 邮件公共类  Begin-->
+	<!-- 
+	<bean name="mailSender" class="javacommon.util.entity.email.SenderVO" lazy-init="default" scope="singleton">
+		<property name="userName" value="zhanchaohan@163.com"></property>
+		<property name="password" value="zhan"></property>
+		<property name="emailEncoding" value="UTF-8"></property>
+		<property name="emailServer" value="smtp.sina.com"></property>
+	</bean>
+	
+	<bean name="mailUtill" class="javacommon.util.MailUtill">
+		<property name="sender" ref="mailSender"></property>
+	</bean>
+	 -->
+	<!-- 邮件公共类  End  -->
+	
+	
+</beans>
